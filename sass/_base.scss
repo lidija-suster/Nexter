@@ -31,3 +31,9 @@ body {
     font-weight: 300;
     line-height: 1.6;
 }
+
+.container {
+    display: grid;
+    // Think responsive from the beginning: definition of rows
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+}
