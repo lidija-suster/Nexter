@@ -36,4 +36,16 @@ body {
     display: grid;
     // Think responsive from the beginning: definition of rows
     grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    // 8 columns, width between minimun content and 14rem (140px)
+    // 8rem is a column for sidebar
+    // 1fr (minmax(6rem, 1fr)) ensures to cover remaining space between sidebar and 8 columns, 
+    // and are serving for forming the full-bleed section
+    // Square brackets: column names
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] 
+    repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    
+    & > * {
+        padding: 40px;
+        font-size: 3rem;
+    }
 }
