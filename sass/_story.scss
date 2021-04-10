@@ -7,5 +7,24 @@
     &__content {
         background-color: $color-grey-light-1;
         grid-column: col-start 5 / full-end;
+
+        padding: 6rem 8vw;
+        // If we have centering only for one dimension (vertically in this case),
+        // it is good practice to combine grid with flexbox
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start; */
+
+        // But the same can be accomplished with grid
+        display: grid;
+        align-content: center;
+        justify-items: start;
+    }
+
+    &__text {
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 4rem;
     }
 }
