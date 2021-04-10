@@ -4,6 +4,35 @@
     margin: 15rem 0;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(3, 1fr);
+    // auto-fit - create as many tracks as can fit based on width that we define (between 25rem and 1fr)
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     grid-gap: 6rem;
+    align-items: start;
+}
+
+.feature {
+    display: grid;
+    // min-content for icon column, 1fr for the rest (text)
+    // It is not necessary to define the rows, content itself will define them
+    grid-template-columns: min-content 1fr;
+    row-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+    column-gap: 2.5rem;
+
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        // This does not work because -1 only works for explicit grid, and rows are not explicitly defined here
+        // grid-row: 1 / -1;
+        grid-row: 1 / span 2;
+        // Move icon slightly up, to be in line with h4 element
+        transform: translateY(-1rem);
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
 }
