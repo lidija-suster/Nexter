@@ -3,4 +3,35 @@
     grid-column: sidebar-start / sidebar-end;
     // Span sidebar from top to bottom
     grid-row: 1 / -1;
+
+    // Center the button via flexbox. Flexbox is the best for manipulating very small stuff on the page.
+    display: flex;
+    justify-content: center;
+}
+
+.nav-btn {
+    border: none;
+    border-radius: 0;
+
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    margin-top: 4rem;
+
+    &::before,
+    &::after {
+        background-color: #fff;
+        height: 2px;
+        width: 4.5rem;
+        content: '';
+        display: block;
+    }
+
+    &::before {
+        transform: translateY(-1.5rem);
+    }
+
+    &::after {
+        transform: translateY(1.3rem);
+    }
 }
