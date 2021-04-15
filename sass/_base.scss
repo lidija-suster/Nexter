@@ -15,9 +15,10 @@ $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
 // RESPONSIVE BREAKPOINTS
-// 1200px breakpoint, 16px browser default
-$bp-largest: 75em; // 1200px / 16
+$bp-largest: 75em; // 1200px / 16 (1200px breakpoint, 16px browser default)
 $bp-large: 62.5em; // 1000px
+$bp-medium: 50em; // 800px
+$bp-small: 37.5em; // 600px
 
 *, *::before, *::after {
     margin: 0;
@@ -61,5 +62,10 @@ body {
         grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
         grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] 
         repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        // calc(100vh - 6rem): subtract 6rem of sidebar
+        grid-template-rows: 6rem calc(100vh - 6rem);
     }
 }
