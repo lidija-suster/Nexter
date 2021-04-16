@@ -1,17 +1,31 @@
 .features {
     grid-column: center-start / center-end;
-
     margin: 15rem 0;
 
-    display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    // auto-fit - create as many tracks as can fit based on width that we define (between 25rem and 1fr)
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 6rem;
-    align-items: start;
+    // If browser supports grid layout, then apply these styles inside supports rule
+    @supports(display: grid) {
+        display: grid;
+        // grid-template-columns: repeat(3, 1fr);
+        // auto-fit - create as many tracks as can fit based on width that we define (between 25rem and 1fr)
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 6rem;
+        align-items: start;
+    }
 }
 
 .feature {
+    // In case browser does not support grid layout
+    float: left;
+    width: 33.3333%;
+    margin-bottom: 6rem;
+
+    // NOTE: grid and flex containers ignore floats, display inline-block and table-cell, vertical align
+    // Reset styles from above if browser does support grid layout
+    @supports(display: grid) {
+        width: auto;
+        margin-bottom: 0;
+    }
+
     display: grid;
     // min-content for icon column, 1fr for the rest (text)
     // It is not necessary to define the rows, content itself will define them
